@@ -1,13 +1,7 @@
 {
     "player": {
         "location": 1,
-        "inventory": [
-            "Swamp Stone",
-            "Swamp Stone",
-            "Swamp Stone",
-            "Swamp Stone",
-            "Green Mold",
-            "Swamp Stone"
-        ]
+        "inventory": [],
+        "money": 54
     }
 }
