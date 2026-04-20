@@ -1,0 +1,6 @@
+# Ignore all __pycache__ directories recursively
+**/__pycache__/
+
+# Ignore all compiled bytecode files
+*.py[cod]
+*$py.class
