@@ -2,7 +2,7 @@ import random
 import time
 from save import save_game
 
-def start_raid(inventory, current_location, debug_mode, c, save_path):
+def start_raid(inventory, current_location, debug_mode, c, save_path, money):
 
     print("enter raid time in minutes from 1 to 360")
     raid_time = input()
@@ -32,12 +32,13 @@ def start_raid(inventory, current_location, debug_mode, c, save_path):
         print ("Raid Success")
         inventory.extend(temp_loot)
         temp_loot = []
-        save_game(save_path)
+        save_game(save_path, inventory, money)
 
     else:
         print("You Died")
         temp_loot = []
-        item_count = {}
+        
 
     return inventory
+
 

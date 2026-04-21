@@ -18,7 +18,7 @@ def show_inventory(inventory, c, money):
 
         items = c.fetchall()
 
-        print ("Your Inventory")
+        print ("Your Inventory:")
         print (f"{money} Rubbles")
 
         for item, count in item_count.items():
@@ -34,3 +34,4 @@ def show_inventory(inventory, c, money):
             end_color = colors["end"]
 
             print(f"{item_color}{item}{end_color} x{count}")
+        print (" ")
