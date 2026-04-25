@@ -3,8 +3,8 @@
 ![License](https://img.shields.io/github/license/ReyGall/Stal-Out?color=blue)
 ![Python](https://img.shields.io/badge/python-3.10+-yellow)
 ![Stars](https://img.shields.io/github/stars/ReyGall/Stal-Out?color=gold)
-![Contributors](https://img.shields.io/github/contributors/ReyGall/Stal-Out?color=blue)
 ![Forks](https://img.shields.io/github/forks/ReyGall/Stal-Out?color=lightgrey)
+![Contributors](https://img.shields.io/github/contributors/ReyGall/Stal-Out?color=green)
 ![Issues](https://img.shields.io/github/issues/ReyGall/Stal-Out?color=red)
 
 A terminal-based RPG engine featuring modular logic and SQLite database integration.
