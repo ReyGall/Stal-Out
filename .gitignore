@@ -4,3 +4,5 @@
 # Ignore all compiled bytecode files
 *.py[cod]
 *$py.class
+data/save.json
+save.json
