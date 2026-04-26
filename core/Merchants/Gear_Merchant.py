@@ -44,7 +44,11 @@ def buy_Armor(c, inventory, money, owned_armor):
 
                 current_count = inventory.count(req_id)
                 
-                recipe_text += f"{req_id} x{req_qty}\n"
+                c.execute("SELECT name FROM loot WHERE id = ?", (req_id,))
+                loot_result = c.fetchone()
+                loot_name = loot_result[0] if loot_result else f"Item {req_id}"
+
+                recipe_text += f"{loot_name} x{req_qty}\n"
                 if current_count < req_qty:
                     can_afford_resources = False
                 
@@ -56,9 +60,9 @@ def buy_Armor(c, inventory, money, owned_armor):
 
                 for name, qty in resourses_list:
                     for _ in range(qty):
-                        inventory.remove(name)
+                        inventory.remove(req_id)
 
-                owned_armor.append(armor_name)
+                owned_armor.append(armor_id)
 
                 print(f"successfuly bought {armor_name}")
                 return inventory, money, owned_armor
@@ -66,3 +70,5 @@ def buy_Armor(c, inventory, money, owned_armor):
             else:
                 print ("Yo dude you have no enough money or resourses\n")
                 return inventory, money, owned_armor
+            
+    return inventory, money, owned_armor

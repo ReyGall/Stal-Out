@@ -33,7 +33,6 @@ c.execute("PRAGMA foreign_keys = ON")
 
 inventory, money, owned_armor, current_location = load_game(save_path)
 
-current_location = 1
 debug_mode = True
 
 actions = ["start raid", "inventory", "fence", "armor merchant"]
@@ -54,7 +53,7 @@ while True:
             selected_action = actions[choise]
             
             if choise == 0:
-                inventory = start_raid(inventory, current_location, debug_mode, c, save_path, money)
+                inventory = start_raid(inventory, current_location, debug_mode, c, save_path, money, owned_armor)
 
             elif choise == 1:
                 show_inventory(inventory, c, money, owned_armor)
@@ -62,7 +61,7 @@ while True:
             elif choise == 2:
                 inventory, earned_money = fence_merchant(c, inventory)
                 money += earned_money
-                save_game(save_path, inventory, money, current_location)
+                save_game(save_path, inventory, money, owned_armor, current_location)
 
             elif choise == 3:
                 inventory, money, owned_armor = buy_Armor(c, inventory, money, owned_armor)
