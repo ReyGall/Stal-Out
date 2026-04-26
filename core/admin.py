@@ -1,5 +1,6 @@
 import sqlite3
 from pathlib import Path 
+import os
 
 P = Path(__file__).parent
 data_F = P.parent/"data"
@@ -8,7 +9,8 @@ db_path = data_F / "database.db"
 con = sqlite3.connect(db_path)
 c = con.cursor()
 c.execute("PRAGMA foreign_keys = ON")
-
+if not os.path.exists('data'):
+    os.makedirs('data')
 
 c.execute ('''CREATE TABLE IF NOT EXISTS locations(
             name text,
@@ -41,7 +43,8 @@ c.execute ('''CREATE TABLE IF NOT EXISTS armor_recipes(
             armor_id INTEGER,
             item_name text,
             quantity INTEGER,
-            FOREIGN KEY (armor_id) REFERENCES armor(id) ON DELETE CASCADE)
+            FOREIGN KEY (armor_id) REFERENCES armor(id) ON DELETE CASCADE,
+            item_id INTEGER)
             ''')
 
 

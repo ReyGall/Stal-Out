@@ -35,7 +35,7 @@ def start_raid(inventory, current_location, debug_mode, c, save_path, money):
         for item in loot_list:
             chance = item [5] / 100
             if random.random() < chance:
-                temp_loot.append(item[0])
+                temp_loot.append(item[1])
                 print(f"You found: {item[0]}")
 
         player_alive = random.random() > death_chance

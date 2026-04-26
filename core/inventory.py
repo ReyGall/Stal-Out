@@ -48,16 +48,17 @@ def show_inventory(inventory, c, money, owned_armor):
         print ("\nitems:")
         for item, count in item_count.items():
 
-            c.execute ("SELECT rarity FROM loot WHERE name = ?", (item,))
-            item_rarity = c.fetchone()
-            if item_rarity is not None:
-                rarity_from_db = item_rarity[0].strip()
+            c.execute ("SELECT rarity, name FROM loot WHERE id = ?", (item,))
+            item_db = c.fetchone()
+            if item_db is not None:
+                rarity_from_db = item_db[0].strip()
+                name_from_db = item_db[1]
                 if rarity_from_db == "Picklock":
                     item_color = colors["Picklock"]
                 else:
                     item_color = colors["default"]
 
-                print(f"{item_color}{item}{end_color} x{count}")
+                print(f"{item_color}{name_from_db}{end_color} x{count}")
             else:
                 print ("error, no item_rarity in db")
         print (" ")
