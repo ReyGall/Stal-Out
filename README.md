@@ -13,6 +13,7 @@ A terminal-based RPG engine featuring modular logic and SQLite database integrat
 This project is a technical demonstration of Python-based game mechanics. It focuses on persistent data management, modularity, and inventory systems. The core logic is separated from data assets to ensure scalability and ease of maintenance.
 
 ## Key Features
+* **Debug Mode:** Mode can be switched in main.py default is on. Debug Mode allows to skip time in raid.
 * **Data Persistence:** Integration with SQLite for loot tables and player statistics.
 * **Modular Architecture:** Distinct separation between the game engine core and data processing.
 * **Save System:** Implementation of JSON-based player state serialization.
