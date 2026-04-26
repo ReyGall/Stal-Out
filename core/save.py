@@ -4,7 +4,7 @@ def load_game(save_path):
 
             with open(save_path, "r", encoding="utf-8") as file:
                 data = json.load(file)
-                current_location = data["player"]["current_location"]
+                current_location = data["player"].get("current_location", 1)
                 inventory = data["player"]["inventory"]
                 money = data["player"]["money"]
                 owned_armor = data["player"]["owned_armor"]
