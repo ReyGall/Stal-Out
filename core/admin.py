@@ -251,7 +251,7 @@ while True:
             
             con.commit()
 
-    elif "armor_res_list" == user_input:
+    elif "armor res list" == user_input:
         for armor_res_list in c.execute("SELECT * FROM armor_recipes ORDER BY armor_id"):
             print (f"id: {armor_res_list[0]}\narmor_id: {armor_res_list[1]}\nitem_name: {armor_res_list[2]}\nquantity: {armor_res_list[3]}\nFOREIGN KEY: {armor_res_list[4]}\n")
 
