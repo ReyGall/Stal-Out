@@ -19,7 +19,8 @@ if not save_path.exists():
     "player": {
         "location": 1,
         "inventory": [],
-        "money": 0
+        "money": 0,
+        "owned_armor": []
     }
     }
     with open(save_path, 'w', encoding='utf-8') as f:
@@ -30,7 +31,7 @@ c = con.cursor()
 c.execute("PRAGMA foreign_keys = ON")
 
 
-inventory, money = load_game(save_path)
+inventory, money, owned_armor = load_game(save_path)
 
 current_location = 1
 debug_mode = True
@@ -56,7 +57,7 @@ while True:
                 inventory = start_raid(inventory, current_location, debug_mode, c, save_path, money)
 
             elif choise == 1:
-                show_inventory(inventory, c, money)
+                show_inventory(inventory, c, money, owned_armor)
 
             elif choise == 2:
                 inventory, earned_money = fence_merchant(c, inventory)
@@ -64,7 +65,7 @@ while True:
                 save_game(save_path, inventory, money)
 
             elif choise == 3:
-                inventory, money = buy_Armor(c, inventory, money)
-                save_game(save_path, inventory, money)
+                inventory, money, owned_armor = buy_Armor(c, inventory, money, owned_armor)
+                save_game(save_path, inventory, money, owned_armor)
 
     

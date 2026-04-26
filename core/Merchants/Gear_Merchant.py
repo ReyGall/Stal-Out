@@ -17,7 +17,8 @@ def buy_Armor(c, inventory, money):
 
     show_inventory(inventory, c, money)
     print ("choose which you want to buy by sending number\n")
-    armor_id = int(input())
+    choose = int(input())
+    armor_id = armor_list[choose -1][0]
 
     c.execute ("SELECT name, price FROM armor WHERE id = ?", (armor_id,))
     result = c.fetchone()
