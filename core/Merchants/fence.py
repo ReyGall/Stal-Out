@@ -16,6 +16,8 @@ def fence_merchant(c, inventory):
         for i, item_name in enumerate(unique_items):
             c.execute("SELECT price FROM loot WHERE name = ?", (item_name,))
             result = c.fetchone()
+            if result is None:
+                continue
             price = result[0] if result else 0
             count = item_counts[item_name]
 

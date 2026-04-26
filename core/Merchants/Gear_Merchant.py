@@ -1,6 +1,6 @@
 from inventory import show_inventory
 
-def buy_Armor(c, inventory, money):
+def buy_Armor(c, inventory, money, owned_armor):
 
     can_afford_resources = True
 
@@ -52,10 +52,10 @@ def buy_Armor(c, inventory, money):
             for _ in range(qty):
                 inventory.remove(name)
 
-        inventory.append(armor_name)
+        owned_armor.append(armor_name)
 
         print(f"successfuly bought {armor_name}")
-        return inventory, money
+        return inventory, money, owned_armor
     
     else:
         print ("Yo dude you have no enough money or resourses\n")

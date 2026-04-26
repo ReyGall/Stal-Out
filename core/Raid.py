@@ -5,7 +5,10 @@ from save import save_game
 def start_raid(inventory, current_location, debug_mode, c, save_path, money):
 
     print("enter raid time in minutes from 1 to 360")
-    raid_time = input()
+    try:
+        raid_time = input()
+    except ValueError:
+        print("invalid number")
     print("Raid Started")
     temp_loot = []
     raid_time_int = int(raid_time)

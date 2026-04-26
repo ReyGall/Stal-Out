@@ -31,7 +31,7 @@ c = con.cursor()
 c.execute("PRAGMA foreign_keys = ON")
 
 
-inventory, money, owned_armor = load_game(save_path)
+inventory, money, owned_armor, current_location = load_game(save_path)
 
 current_location = 1
 debug_mode = True
@@ -62,10 +62,10 @@ while True:
             elif choise == 2:
                 inventory, earned_money = fence_merchant(c, inventory)
                 money += earned_money
-                save_game(save_path, inventory, money)
+                save_game(save_path, inventory, money, current_location)
 
             elif choise == 3:
                 inventory, money, owned_armor = buy_Armor(c, inventory, money, owned_armor)
-                save_game(save_path, inventory, money, owned_armor)
+                save_game(save_path, inventory, money, owned_armor, current_location)
 
     

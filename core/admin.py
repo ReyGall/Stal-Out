@@ -97,6 +97,7 @@ while True:
         if loot_accept == "y":
             c.execute("DELETE FROM locations WHERE id = ?",
             (delete_location_id,))
+            c.execute("DELETE FROM loot WHERE location_id = ?", (delete_location_id))
         else:
             print("delete cancelled")
 
