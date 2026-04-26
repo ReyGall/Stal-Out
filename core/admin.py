@@ -213,14 +213,6 @@ while True:
         for armor_list in c.execute ("SELECT * FROM armor ORDER BY id"):
             print (f"name: {armor_list[0]}\nid: {armor_list[1]}\nclass: {armor_list[2]}\nprice: {armor_list[3]}\nrarity: {armor_list[4]}\narmor lvl: {armor_list[5]}\nparmor bullet resistance: {armor_list[6]} ")
 
-            # name text,
-            # id INTEGER PRIMARY KEY AUTOINCREMENT,
-            # class text,
-            # price INTEGER,
-            # rarity text,
-            # lvl INTEGER,
-            # bullet_resistance INTEGER)
-
     elif "edit armor" == user_input:
         print("enter armor id")
         edit_armor_id = input()
@@ -259,7 +251,9 @@ while True:
             
             con.commit()
 
-
+    elif "armor_res_list" == user_input:
+        for armor_res_list in c.execute("SELECT * FROM armor_recipes ORDER BY armor_id"):
+            print (f"id: {armor_res_list[0]}\narmor_id: {armor_res_list[1]}\nitem_name: {armor_res_list[2]}\nquantity: {armor_res_list[3]}\nFOREIGN KEY: {armor_res_list[4]}\n")
 
 
     con.commit()
