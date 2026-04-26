@@ -15,7 +15,7 @@ def buy_Armor(c, inventory, money, owned_armor):
 
     print (" ")
 
-    show_inventory(inventory, c, money)
+    show_inventory(inventory, c, money, owned_armor)
     print ("choose which you want to buy by sending number\n")
     choice = input()
     if choice.isdigit():
