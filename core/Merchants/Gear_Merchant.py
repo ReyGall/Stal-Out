@@ -1,6 +1,6 @@
 from inventory import show_inventory
 
-def Buy_Armor(c, inventory, money):
+def buy_Armor(c, inventory, money):
 
     can_afford_resources = True
 

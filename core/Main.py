@@ -5,7 +5,7 @@ from inventory import show_inventory
 from save import load_game
 from save import save_game
 from Merchants.fence import fence_merchant
-from Merchants.Gear_Merchant import Buy_Armor
+from Merchants.Gear_Merchant import buy_Armor
 
 P = Path(__file__).parent
 data_F = P.parent/"data"
@@ -51,6 +51,6 @@ while True:
                 save_game(save_path, inventory, money)
 
             elif choise == 3:
-                Buy_Armor(c, inventory, money)
+                buy_Armor(c, inventory, money)
 
     
