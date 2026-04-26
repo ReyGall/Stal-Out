@@ -217,7 +217,7 @@ while True:
         print("enter armor id")
         edit_armor_id = input()
 
-        c.execute("SELECT * FROM loot WHERE id = ?", (edit_armor_id,))
+        c.execute("SELECT * FROM armor WHERE id = ?", (edit_armor_id,))
         armor = c.fetchone()
         
         if armor:
@@ -253,7 +253,7 @@ while True:
 
     elif "armor res list" == user_input:
         for armor_res_list in c.execute("SELECT * FROM armor_recipes ORDER BY armor_id"):
-            print (f"id: {armor_res_list[0]}\narmor_id: {armor_res_list[1]}\nitem_name: {armor_res_list[2]}\nquantity: {armor_res_list[3]}\nFOREIGN KEY: {armor_res_list[4]}\n")
+            print (f"id: {armor_res_list[0]}\narmor_id: {armor_res_list[1]}\nitem_name: {armor_res_list[2]}\nquantity: {armor_res_list[3]}\n")
 
 
     con.commit()
