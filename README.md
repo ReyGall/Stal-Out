@@ -28,7 +28,7 @@ This project is a technical demonstration of Python-based game mechanics. It foc
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/ReyGall/Stal-Out.git](https://github.com/ReyGall/Stal-Out.git)
+   git clone https://github.com/ReyGall/Stal-Out.git](https://github.com/ReyGall/Stal-Out.git
 
 This project is licensed under the Apache License 2.0. See the LICENSE file for details.
 Developed for educational purposes to demonstrate Python backend and database management skills.
