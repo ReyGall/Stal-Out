@@ -1,15 +1,9 @@
 import random
 import time
-from save import save_game
+from core.save import save_game
 
-def start_raid(inventory, current_location, debug_mode, c, save_path, money, owned_armor):
+def start_raid(inventory, raid_time_int, current_location, debug_mode, c, save_path, money, owned_armor):
 
-    print("enter raid time in minutes from 1 to 360")
-    try:
-        raid_time = input()
-        raid_time_int = int(raid_time)
-    except ValueError:
-        print("invalid number")
     print("Raid Started")
     temp_loot = []
     c.execute ("SELECT death_chance FROM locations WHERE id = ?", (current_location,))

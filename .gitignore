@@ -1,8 +1,12 @@
-# Ignore all __pycache__ directories recursively
 **/__pycache__/
 
-# Ignore all compiled bytecode files
 *.py[cod]
 *$py.class
 data/save.json
 save.json
+
+venv/
+.venv/
+env/
+bin/
+lib64/

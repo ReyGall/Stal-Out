@@ -30,7 +30,6 @@ con = sqlite3.connect(db_path)
 c = con.cursor()
 c.execute("PRAGMA foreign_keys = ON")
 
-
 inventory, money, owned_armor, current_location = load_game(save_path)
 
 debug_mode = True
@@ -45,7 +44,10 @@ while True:
 
 
 
-    user_input = input().lower().strip()
+    user_input = input(">> ").lower().strip()
+
+    if not user_input:
+        continue
 
     if user_input.isdigit():
         choise = int(user_input) - 1
@@ -54,9 +56,11 @@ while True:
             
             if choise == 0:
                 inventory = start_raid(inventory, current_location, debug_mode, c, save_path, money, owned_armor)
+                save_game(save_path, inventory, money, owned_armor, current_location)
 
             elif choise == 1:
                 show_inventory(inventory, c, money, owned_armor)
+                save_game(save_path, inventory, money, owned_armor, current_location)
 
             elif choise == 2:
                 inventory, earned_money = fence_merchant(c, inventory)

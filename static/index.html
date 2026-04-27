@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>STAL-OUT UI</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+
+    <div class="game-container">
+        <h1>STAL-OUT TERMINAL</h1>
+        
+        <div class="stats-panel">
+            <div class="stat-box">Money: <span id="money">0</span></div>
+            <div class="stat-box">Location: <span id="location">1</span></div>
+        </div>
+
+    <div class="menu-buttons">
+        <h1>Enter Raid Time</h1>
+        <input type="tel" id="raidMinutes" placeholder="from 1 to 360"> 
+        
+        <button onclick="runRaid()">Start Raid</button>
+        
+        <button onclick="showAlert('inv')">Inventory</button>
+        <button onclick="showAlert('shop')">Gear Merchant</button>
+        <button onclick="showAlert('fence')">Fence</button>
+    </div>
+
+    <script>
+        function showAlert(type) {
+            alert("Вы нажали кнопку: " + type + ". Скоро здесь будет логика!");
+        }
+
+        async function updateUI() {
+            try {
+                const response = await fetch('/player');
+                const data = await response.json();
+                document.getElementById('money').innerText = data.player.money;
+                document.getElementById('location').innerText = data.player.location;
+            } catch (e) {
+                console.log("Ошибка обновления:", e);
+            }
+        }
+
+        setInterval(updateUI, 2000);
+    </script>
+
+    <script>
+async function runRaid() {
+
+    const mins = document.getElementById('raidMinutes').value;
+
+
+    const response = await fetch(`/start_raid?minutes=${mins}`, {
+        method: 'POST'
+    });
+
+    if (response.ok) {
+        const result = await response.json();
+        
+        if (typeof updateUI === "function") {
+            updateUI();
+        }
+    } else {
+        alert("Error");
+    }
+}
+</script>
+
+</body>
+</html>
+

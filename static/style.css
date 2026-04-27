@@ -1,0 +1,83 @@
+body {
+    background-color: #1a1a1a; 
+    color: #00ff00; 
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+    border: 2px solid #00ff00;
+    padding: 30px;
+    background: rgba(0, 50, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+.stats-panel {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.stat-box {
+    border: 1px solid #00ff00;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;
+}
+
+button {
+    background: transparent;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+button:hover {
+    background: #00ff00;
+    color: #1a1a1a;
+    box-shadow: 0 0 15px #00ff00;
+}
+
+#raidMinutes {
+    background: transparent;     
+    color: #00ff00;              
+    border: 1px solid #00ff00;    
+    padding: 15px;              
+    font-size: 1.5rem;            
+    font-family: inherit;         
+    text-align: center;           
+    outline: none;                
+    transition: all 0.3s;         
+    width: 80%;                   
+    margin: 0 auto 10px auto;     
+}
+
+#rraidMinutes:focus {
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 10px rgba(0, 255, 0, 0.2);
+    border-width: 2px;            
+}
+
+#raidMinutes::-webkit-inner-spin-button, 
+#raidMinutes::-webkit-outer-spin-button { 
+    display: none;
+}
+
+#raidMinutes {
+    -moz-appearance: textfield !important; 
+    appearance: none !important;           
+}
